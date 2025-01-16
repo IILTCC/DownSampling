@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace DownSamplingLibary.LargestTriangle
 {
-    public static class Area
+    public static class Area<PointType>where PointType:GraphPoint
     {
         private static double GetArea(GraphPoint p1, GraphPoint p2, GraphPoint p3)
         {
@@ -12,11 +12,11 @@ namespace DownSamplingLibary.LargestTriangle
             double item3 = p3.X * (p1.Y - p2.Y);
             return 0.5 * Math.Abs(item1+item2+item3);
         }
-        public static GraphPoint GetLargestArea(GraphPoint point, Bucket bucket , GraphPoint center)
+        public static PointType GetLargestArea(GraphPoint point, Bucket<PointType> bucket , GraphPoint center)
         {
             int maxIndex = 0;
             double maxValue = 0;
-            List<GraphPoint> bucketPoints = bucket.GetPoints();
+            List<PointType> bucketPoints = bucket.GetPoints();
             for(int bucketIndex = 0; bucketIndex< bucketPoints.Count;bucketIndex++)
             {
                 if(GetArea(point, bucketPoints[bucketIndex],center)>maxValue)

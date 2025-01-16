@@ -2,15 +2,15 @@
 
 namespace DownSamplingLibary.LargestTriangle
 {
-    public class Bucket
+    public class Bucket<PointType> where PointType:GraphPoint
     {
-        private readonly List<GraphPoint> _points;
-        public GraphPoint SavedPoint { get; set; }
-        public Bucket(List<GraphPoint> points)
+        private readonly List<PointType> _points;
+        public PointType SavedPoint { get; set; }
+        public Bucket(List<PointType> points)
         {
             _points = points;
         }
-        public List<GraphPoint> GetPoints()
+        public List<PointType> GetPoints()
         {
             return _points;
         }
@@ -18,7 +18,7 @@ namespace DownSamplingLibary.LargestTriangle
         {
             double xSum = 0;
             double ySum = 0;
-            foreach (GraphPoint point in _points)
+            foreach (PointType point in _points)
             {
                 xSum += point.X;
                 ySum += point.Y;
