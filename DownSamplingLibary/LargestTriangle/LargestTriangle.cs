@@ -8,8 +8,8 @@ namespace DownSamplingLibary.LargestTriangle
 
         public List<PointType> ReducePoints(List<PointType> points, int desiredPoints)
         {
-            if (points.Count < 3 || desiredPoints>points.Count)
-                return null;
+            if (points.Count < 3 || desiredPoints>points.Count || desiredPoints<3)
+                return points;
             List<Bucket<PointType>> buckets = PopulateBuckets(points,desiredPoints);
             for(int indxBucket = Consts.INGORE_FIRST_BUCKET;indxBucket < desiredPoints-Consts.INGORE_LAST_BUCKET;indxBucket++)
             {

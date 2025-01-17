@@ -2,7 +2,7 @@
 {
     public class Consts
     {
-        public static int FIRST_BUCKET_POINT = 1;
+        public static int FIRST_BUCKET_POINT = 0;
         public static int FIRST_LAST_BUCKET = 2;
         public static int REMOVE_FIRST_POINT = 1;
         public static int INGORE_FIRST_BUCKET = 1;
